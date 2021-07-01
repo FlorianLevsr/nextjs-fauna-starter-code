@@ -15,12 +15,15 @@ export class UsersQuery extends Query<UsersState> {
   }
 }
 
-export const userQuery = new UsersQuery(new UsersStore())
-
 export class UsersService {
-  constructor(private usersStore: UsersStore) {}
+  private usersQuery: UsersQuery
 
-  get = (token: string): User | undefined => userQuery.getValue()[token]
+  constructor(private usersStore: UsersStore) {
+    this.usersQuery = new UsersQuery(usersStore)
+  }
+
+  getAll = (): UsersState => this.usersQuery.getValue()
+  get = (token: string): User | undefined => this.usersQuery.getValue()[token]
 
   set = (token: string, user: User): void => {
     this.usersStore.update((state) => ({ ...state, [token]: user }))
@@ -38,7 +41,7 @@ export class UsersService {
     })
   }
 
-  resest = (): void => {
+  reset = (): void => {
     this.usersStore.update({})
   }
 }

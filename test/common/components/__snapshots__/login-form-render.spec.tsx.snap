@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login form should render correctly 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <div
+    className="chakra-form-control css-1kxonj9"
+    role="group"
+  >
+    <label
+      className="chakra-form__label css-uvho5g"
+      htmlFor="field-1"
+      id="field-1-label"
+    >
+      Username
+      <input
+        className="chakra-input css-0"
+        disabled={false}
+        id="field-1"
+        name="username"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        readOnly={false}
+        required={false}
+        type="text"
+      />
+    </label>
+    <label
+      className="chakra-form__label css-uvho5g"
+      htmlFor="field-1"
+      id="field-1-label"
+    >
+      Password
+      <input
+        className="chakra-input css-0"
+        disabled={false}
+        id="field-1"
+        name="password"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        readOnly={false}
+        required={false}
+        type="password"
+      />
+    </label>
+    <div
+      className="css-gmuwbf"
+    >
+      <button
+        className="chakra-button css-1xx8uq7"
+        disabled={false}
+        onClick={[Function]}
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </div>
+</form>
+`;
