@@ -52,7 +52,10 @@ interface LoginInput {
  */
 
 // ANCHOR Describe query
-export const query: TypedDocumentNode<CurrentUserData, undefined> = gql`
+export const query: TypedDocumentNode<
+  CurrentUserData,
+  Record<string, never>
+> = gql`
   query CurrentUserQuery {
     currentUser {
       _id
@@ -88,7 +91,10 @@ export const loginQuery: TypedDocumentNode<LoginData, LoginInput> = gql`
 `
 
 // ANCHOR Describe logout query
-export const logoutQuery: TypedDocumentNode<LogoutData> = gql`
+export const logoutQuery: TypedDocumentNode<
+  LogoutData,
+  Record<string, never>
+> = gql`
   mutation LogoutUser {
     logoutUser
   }
@@ -158,8 +164,8 @@ export const AuthContextProvider: FC = ({ children }) => {
           },
         })
       },
-      onCompleted: (data) => {
-        usersService.set(data.signupUser.secret, data.signupUser.instance)
+      onCompleted: async (data) => {
+        await usersService.set(data.signupUser.secret, data.signupUser.instance)
         faunaTokenManager.set(data.signupUser.secret)
       },
     })

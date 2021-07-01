@@ -114,12 +114,7 @@ export const TestAllTasks: FC<{ cache: InMemoryCache }> = ({
   cache,
   children,
 }) => (
-  <MockedProvider
-    cache={cache}
-    mocks={mocks}
-    addTypename={false}
-    // defaultOptions={{ watchQuery: { fetchPolicy: 'no-cache' } }}
-  >
+  <MockedProvider cache={cache} mocks={mocks} addTypename={false}>
     <AllTasksContextProvider currentUser={user} initialData={initialData}>
       {children}
     </AllTasksContextProvider>
